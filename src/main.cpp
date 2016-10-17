@@ -1,34 +1,22 @@
 #include <iostream>
 #include <vector>
-#include <thread>
-#include <mutex>
 
 using std::cout;
-using std::endl;
 using std::vector;
-using std::thread;
 using std::string;
-using std::to_string;
-using std::mutex;
 
-mutex mtx;
+int main(int argc, char* argv[]) {
+    vector<string> strings;
 
-void printString(string output) {
-    mtx.lock();
-    cout << output << endl;
-    mtx.unlock();
-}
-
-int main() {
-    vector<thread> workers;
-
-    for (int i = 0; i < 20; i++) {
-        workers.emplace_back(thread(printString, "This is thread " + to_string(i)));
+    for (int i = 0; i < argc; i++) {
+        strings.emplace_back(argv[i]);
     }
 
-    for (auto &a: workers) {
-        a.join();
+    for(auto &a: strings) {
+        cout << a << "\n";
     }
+
+    std::cin.get();
 
     return 0;
 }

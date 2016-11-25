@@ -9,5 +9,16 @@ add_custom_target(build-time-make-directory ALL COMMAND ${CMAKE_COMMAND} -E make
 # Set output folder to bin folder
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-set(SOURCE_FILES src/main.cpp)
+find_package(glfw3 3.2 REQUIRED)
+find_package(OpenGL REQUIRED)
+
+
+
+set(SOURCE_FILES src/main.cpp src/window.cpp src/window.h)
 add_executable(Testing ${SOURCE_FILES})
+
+target_link_libraries(Testing ${OPENGL_gl_LIBRARY})
+
+
+
+target_link_libraries(Testing glfw)

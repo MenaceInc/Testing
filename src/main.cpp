@@ -1,22 +1,8 @@
-#include <iostream>
-#include <vector>
+#include "window.h"
 
-using std::cout;
-using std::vector;
-using std::string;
-
-int main(int argc, char* argv[]) {
-    vector<string> strings;
-
-    for (int i = 0; i < argc; i++) {
-        strings.emplace_back(argv[i]);
-    }
-
-    for(auto &a: strings) {
-        cout << a << "\n";
-    }
-
-    std::cin.get();
+int main(void) {
+    window test(1280,720);
+    test.run();
 
     return 0;
 }

@@ -1,8 +1,7 @@
-#include "window.h"
+#include "View.h"
 
 int main(void) {
-    window test(1280,720);
-    test.run();
+    View test("Test", 1280, 720);
 
-    return 0;
+    return test.run();
 }

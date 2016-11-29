@@ -5,5 +5,5 @@ View::View(std::string title, uint16_t width, uint16_t height) :
 }
 
 int View::run() {
-    return window.show();
+    return _window.show();
 }

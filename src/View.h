@@ -4,11 +4,11 @@
 #include <cstdint>
 
 #if _WIN32
-#include "Win32Window.h"
+#include "MinWinPP.h"
 #endif
 
 class View {
-    window _window;
+    MW::window _window;
 public:
     View(std::string title = "", uint16_t width = 640, uint16_t height = 480);
 

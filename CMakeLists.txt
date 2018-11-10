@@ -1,11 +1,7 @@
-cmake_minimum_required(VERSION 3.5)
-project(com_menaceinc_Testing)
+cmake_minimum_required(VERSION 3.0)
+project(Testing)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
-
-set(SOURCE_FILES src/main.cpp)
-
-add_executable(Testing ${SOURCE_FILES})
-
-INCLUDE(InstallRequiredSystemLibraries)
-INCLUDE(CPack)
+add_executable(Testing)
+target_include_directories(Testing PRIVATE src)
+target_sources(Testing PRIVATE src/main.cpp)
+target_compile_features(Testing PRIVATE cxx_std_17)
